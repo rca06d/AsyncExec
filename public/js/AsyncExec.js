@@ -2,9 +2,8 @@ function AsyncExec (fn) {
 
 	// Build a worker from an anonymous function body
 	var blobURL = URL.createObjectURL( new Blob([ 
-		'var result = ',
-		'(', fn.toString(), ')();',
-		'postMessage(result);',
+		'var result = (' + fn.toString() + ')();',
+		'postMessage(result);'
 	], { type: 'application/javascript' } ) ),
 
 	worker = new Worker( blobURL );

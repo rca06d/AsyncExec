@@ -4,7 +4,7 @@ function AsyncExec (fn) {
 	var blobURL = URL.createObjectURL( new Blob([ 
 		'var result = (' + fn.toString() + ')();',
 		'postMessage(result);'
-	], { type: 'application/javascript' } ) ),
+	], { type: 'application/javascript' }) ),
 
 	worker = new Worker( blobURL );
 
